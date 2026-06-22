@@ -71,7 +71,7 @@
     <button class="btn primary" id="startBtn" onclick="toggle()" data-i18n="start">開始</button>
     <button class="btn ghost" onclick="reset()" data-i18n="reset">重設</button>
   </div>
-  <div class="count" id="count" data-i18n="done0">已完成 0 個番茄 🍅</div>
+  <div class="count" id="count" data-i18n="done0">已完成 0 個番茄 🍅</div><div style="font-size:11px;color:#50506e;margin-top:6px">⌨ Space 開始/暫停 · R 重設</div>
 
   <div class="card">
     <div class="seclabel" data-i18n="ambient">專注背景音（內建，免版權）</div>
@@ -173,6 +173,7 @@
   function toggleLang(){ setLang(LANG==='en'?'zh':'en'); }
   window.toggleLang=toggleLang;
   setMode('focus'); render(); setLang(LANG);
+  document.addEventListener('keydown',function(e){if(e.target.tagName==='INPUT')return;if(e.code==='Space'){e.preventDefault();toggle();}else if(e.key.toLowerCase()==='r'){reset();}});
   try{(adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}
 </script>
 </body>
